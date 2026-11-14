@@ -1,4 +1,3 @@
-
 package ua.com.reactive.gr_401_reactive.router;
 
 import org.springframework.context.annotation.Bean;
@@ -31,6 +30,10 @@ public class GreetingRouter {
                 .andRoute(
                         RequestPredicates.GET("/users"),
                         greetingHandler::getClients
+                )
+                .andRoute(
+                        RequestPredicates.GET("/admin"),
+                        greetingHandler::admin
                 );
     }
 }

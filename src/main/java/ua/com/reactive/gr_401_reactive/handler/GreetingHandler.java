@@ -1,4 +1,3 @@
-
 package ua.com.reactive.gr_401_reactive.handler;
 
 import org.springframework.http.MediaType;
@@ -50,5 +49,20 @@ public class GreetingHandler {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(clients, Client.class);
     }
+
+    public Mono<ServerResponse> admin(ServerRequest request) {
+
+        Flux<Client> clients = Flux.just(
+                new Client(1L, "Vasya", "Pypkin", 18),
+                new Client(2L, "Iva", "Pypkina", 19),
+                new Client(3L, "Inna", "Pypkina", 20)
+        );
+
+        return ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(clients, Client.class);
+    }
+
 }
 
